@@ -4,12 +4,25 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// a class representing a water
+    /// </summary>
     public class Water : Drink
     {
+
+        /// <summary>
+        /// if the water has ice or not
+        /// </summary>
         public override bool Ice { get; set; } = true;
 
+        /// <summary>
+        /// if the water has a lemon or not
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
+        /// <summary>
+        /// price of the water
+        /// </summary>
         public override double Price
         {
             get
@@ -28,6 +41,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// calories of the water
+        /// </summary>
         public override uint Calories
         {
             get
@@ -46,6 +62,9 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// special instructions for the water
+        /// </summary>
         public override List<string> SpecialInstructions
         {
             get
