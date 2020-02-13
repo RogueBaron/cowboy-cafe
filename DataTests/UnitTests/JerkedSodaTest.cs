@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
-/*
+
 namespace CowboyCafe.DataTests
 {
     public class JerkedSodaTest
@@ -114,9 +114,8 @@ namespace CowboyCafe.DataTests
             {
                 Ice = ice
             };
-            if (!ice) Assert.Collection(soda.SpecialInstructions, item => Assert.Equal("Hold Ice", item));
+            if (!ice) Assert.Collection(soda.SpecialInstructions, item => Assert.Equal("hold ice", item));
             if (ice) Assert.Empty(soda.SpecialInstructions);
         }
     }
 }
-*/

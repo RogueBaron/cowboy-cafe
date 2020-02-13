@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
-/*
+
 namespace CowboyCafe.DataTests
 {
     public class TexasTeaTest
@@ -120,12 +120,11 @@ namespace CowboyCafe.DataTests
                 Ice = ice,
                 Lemon = lemon,
             };
-            if (!ice) Assert.Contains("Hold Ice", tea.SpecialInstructions);
-            if (lemon) Assert.Contains("Add Lemon", tea.SpecialInstructions);
+            if (!ice) Assert.Contains("hold ice", tea.SpecialInstructions);
+            if (lemon) Assert.Contains("add lemon", tea.SpecialInstructions);
             if (ice && !lemon) Assert.Empty(tea.SpecialInstructions);
             if (ice && lemon || !ice && !lemon) Assert.Single(tea.SpecialInstructions);
             if (!ice && lemon) Assert.Equal(2, tea.SpecialInstructions.Count);
         }
     }
 }
-*/
