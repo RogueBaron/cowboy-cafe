@@ -82,5 +82,38 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// prints out name of item
+        /// </summary>
+        /// <returns>name of item</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            switch (Size)
+            {
+                case Size.Small:
+                    sb.Append("Small ");
+                    break;
+                case Size.Medium:
+                    sb.Append("Medium ");
+                    break;
+                case Size.Large:
+                    sb.Append("Large ");
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            if (Decaf)
+            {
+                sb.Append("Decaf ");
+            }
+
+            sb.Append("Cowboy Coffee");
+
+            return sb.ToString();
+        }
     }
 }

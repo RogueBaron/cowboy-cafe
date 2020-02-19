@@ -98,5 +98,24 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// prints out name of item
+        /// </summary>
+        /// <returns>name of item</returns>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case (Size.Small):
+                    return "Small Texas Tea";
+                case Size.Medium:
+                    return "Medium Texas Tea";
+                case Size.Large:
+                    return "Large Texas Tea";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }
