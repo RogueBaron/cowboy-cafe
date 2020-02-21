@@ -101,16 +101,16 @@ namespace CowboyCafe.Data
             switch (Flavor)
             {
                 case SodaFlavor.BirchBeer:
-                    sb.Append("BirchBeer ");
+                    sb.Append("Birch Beer ");
                     break;
                 case SodaFlavor.CreamSoda:
-                    sb.Append("Cream ");
+                    sb.Append("Cream Soda ");
                     break;
                 case SodaFlavor.OrangeSoda:
-                    sb.Append("Orange ");
+                    sb.Append("Orange Soda ");
                     break;
                 case SodaFlavor.RootBeer:
-                    sb.Append("RootBeer ");
+                    sb.Append("Root Beer ");
                     break;
                 case SodaFlavor.Sarsparilla:
                     sb.Append("Sarsparilla ");

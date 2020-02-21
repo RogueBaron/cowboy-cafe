@@ -105,17 +105,36 @@ namespace CowboyCafe.Data
         /// <returns>name of item</returns>
         public override string ToString()
         {
+            StringBuilder sb = new StringBuilder();
+
             switch (Size)
             {
                 case (Size.Small):
-                    return "Small Texas Tea";
+                    sb.Append("Small ");
+                    break;
                 case Size.Medium:
-                    return "Medium Texas Tea";
+                    sb.Append("Medium ");
+                    break;
                 case Size.Large:
-                    return "Large Texas Tea";
+                    sb.Append("Large ");
+                    break;
                 default:
                     throw new NotImplementedException();
             }
+
+            sb.Append("Texas ");
+
+            if (Sweet)
+            {
+                sb.Append("Sweet ");
+            }
+            else
+            {
+                sb.Append("Plain ");
+            }
+
+            sb.Append("Tea");
+            return sb.ToString();
         }
     }
 }
