@@ -11,6 +11,5 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <local:OrderControl Grid.Column="0"></local:OrderControl>
-
     </Grid>
 </Window>
