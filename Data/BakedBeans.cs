@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Baked Beans Side Class
     /// </summary>
-    public class BakedBeans: Side
+    public class BakedBeans: Side, IOrderItem
     {
         /// <summary>
         /// Baked Beans price based off size
@@ -50,6 +50,19 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Special instructions for the preparation of the ribs
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+                return instructions;
+            }
+        }
+
 
         /// <summary>
         /// prints out name of item

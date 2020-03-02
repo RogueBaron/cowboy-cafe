@@ -20,6 +20,9 @@ namespace PointOfSale
     public partial class OrderControl : UserControl
     {
 
+
+
+
         /// <summary>
         /// initalizer for Order Control
         /// </summary>
@@ -53,7 +56,7 @@ namespace PointOfSale
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddCowPokeChili_Click(object sender, RoutedEventArgs e)
-        {
+        {   
             ListBox.Items.Add(new CowpokeChili());
         }
 

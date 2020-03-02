@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Chili Cheese Friese Side Class
     /// </summary>
-    public class ChiliCheeseFries : Side
+    public class ChiliCheeseFries : Side, IOrderItem
     {
         /// <summary>
         /// Chili Cheese Fries price based of size
@@ -48,6 +48,18 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the preparation of the ribs
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+                return instructions;
             }
         }
 

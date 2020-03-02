@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,23 +15,15 @@ using CowboyCafe.Data;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OrderSummaryControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrderSummaryControl : UserControl
     {
-        public MainWindow()
+        public OrderSummaryControl()
         {
             InitializeComponent();
 
-            DataContext = new Order();
-
-            //come back to this, its not right...
-            var data = new Order();
-            data.Add(new CowpokeChili());
-            data.Add(new TexasTea());
-            data.Add(new TexasTripleBurger());
-            DataContext = data;
-
+            //DataContext = new Order();
         }
     }
 }

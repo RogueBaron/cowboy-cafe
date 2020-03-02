@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Pan de Campo side
     /// </summary>
-    public class PanDeCampo : Side
+    public class PanDeCampo : Side, IOrderItem
     {
         /// <summary>
         /// Pan de Campo price based off size
@@ -48,6 +48,18 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the preparation of the ribs
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+                return instructions;
             }
         }
 

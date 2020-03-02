@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// a class representing texas tea
     /// </summary>
-    public class TexasTea : Drink
+    public class TexasTea : Drink, IOrderItem
     {
         /// <summary>
         /// if the tea has ice or not

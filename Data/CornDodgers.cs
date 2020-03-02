@@ -7,7 +7,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Corn Dodgers Side Class
     /// </summary>
-    public class CornDodgers : Side
+    public class CornDodgers : Side, IOrderItem
     {
         /// <summary>
         /// Corn Dodgers price based off size
@@ -48,6 +48,18 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the preparation of the ribs
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+                return instructions;
             }
         }
 
