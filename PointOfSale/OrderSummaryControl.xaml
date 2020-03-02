@@ -12,8 +12,14 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="{Binding Path=OrderNumber, StringFormat=i}" Name="OrderText"></TextBlock>
-        <ListBox Grid.Row="1" Name = "OrderList" ItemsSource="{Binding Path= Items}"></ListBox>
-        <TextBlock Grid.Row="2" Text="{Binding Path=Subtotal, StringFormat=c}"></TextBlock>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="{Binding Path=OrderNumber}" Name="OrderText"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ListBox Name = "OrderList" ItemsSource="{Binding Path= Items}"></ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="{Binding Path=Subtotal, StringFormat= c}"></TextBlock>
+        </StackPanel>
     </Grid>
 </UserControl>

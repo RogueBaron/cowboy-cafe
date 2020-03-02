@@ -28,11 +28,9 @@ namespace PointOfSale
             DataContext = new Order();
 
             //come back to this, its not right...
-            var data = new Order();
-            data.Add(new CowpokeChili());
-            data.Add(new TexasTea());
-            data.Add(new TexasTripleBurger());
-            DataContext = data;
+            //var data = new Order();
+
+            //DataContext = data;
 
         }
     }
