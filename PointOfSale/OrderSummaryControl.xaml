@@ -12,11 +12,26 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <TextBlock Text="{Binding Path=OrderNumber}" Name="OrderText"></TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <ListBox Name = "OrderList" ItemsSource="{Binding Path= Items}"></ListBox>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <ListBox ItemsSource="{Binding Path= Items}"></ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <ListBox ItemsSource="{Binding Path= Items}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Price, StringFormat= c}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
         <StackPanel Grid.Row="2">
             <TextBlock Text="{Binding Path=Subtotal, StringFormat= c}"></TextBlock>
