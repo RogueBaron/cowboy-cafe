@@ -25,7 +25,7 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            DataContext = new Order();
+            //DataContext = new Order();
 
             //come back to this, its not right...
             //var data = new Order();

@@ -17,24 +17,28 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
-            <TextBlock Text="{Binding Path=OrderNumber}" Name="OrderText"></TextBlock>
+            <TextBlock FontSize="18" Text="Order: ">
+                <TextBlock FontSize="18" Text="{Binding Path=OrderNumber}" Name="OrderText"></TextBlock>
+            </TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <ListBox ItemsSource="{Binding Path= Items}"></ListBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <ListBox ItemsSource="{Binding Path= Items}">
-                <ListBox.ItemTemplate>
+            <ListView ItemsSource="{Binding Path= Items}">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock Text="{Binding Path=Price, StringFormat= c}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <TextBlock Text="{Binding Path=Subtotal, StringFormat= c}"></TextBlock>
+            <TextBlock FontSize="18" Text="Subtotal: ">
+                <TextBlock FontSize="18" Text="{Binding Path=Subtotal, StringFormat= c}"></TextBlock>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

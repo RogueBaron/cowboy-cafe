@@ -10,7 +10,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// number of the previous order
         /// </summary>
-        private uint LastOrderNumber;
+        private uint LastOrderNumber = 0;
 
         /// <summary>
         /// list of items currently in the order
@@ -40,13 +40,18 @@ namespace CowboyCafe.Data
         /// <summary>
         /// the number associated with the current order (1+lastOrderNumber)
         /// </summary>
-        public uint OrderNumber { get; }
+        public uint OrderNumber { get { return LastOrderNumber++; } }
 
         /// <summary>
         /// An event to fire whenever an item is added, removed or the subtotal changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        public Order()
+        {
+            LastOrderNumber++;
+        }
         /// <summary>
         /// Adds an item to the order
         /// </summary>

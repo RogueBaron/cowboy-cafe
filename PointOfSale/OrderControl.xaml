@@ -17,11 +17,18 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0">
-            <Button Name="AddItemSelection">Item Selection</Button>
-            <Button Name="AddCancelOrder">Cancel Order</Button>
-            <Button Name="AddCompleteOrder">Complete Order</Button>
+            <Button Name="AddItemSelection" Click="AddItemSelection_Click">Item Selection</Button>
+            <Button Name="AddCancelOrder" Click="AddCancelOrder_Click">Cancel Order</Button>
+            <Button Name="AddCompleteOrder" Click="AddCompleteOrder_Click">Complete Order</Button>
         </StackPanel>
         <local:MenuItemSelectionControl Grid.Row="1"></local:MenuItemSelectionControl>
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <local:OrderSummaryControl></local:OrderSummaryControl>
+        </StackPanel>
     </Grid>
 </UserControl>
