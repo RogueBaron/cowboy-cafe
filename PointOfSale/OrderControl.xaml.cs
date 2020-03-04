@@ -44,5 +44,10 @@ namespace PointOfSale
         {
             this.DataContext = new Order();
         }
+
+        public void swapScreen(UIElement element)
+        {
+            Container.Child = element;
+        }
     }
 }
