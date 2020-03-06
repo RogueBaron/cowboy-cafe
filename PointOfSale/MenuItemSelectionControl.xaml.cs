@@ -54,6 +54,7 @@ namespace PointOfSale
         {
 
             var orderControl = this.FindAncestor<OrderControl>();
+            var screen = new CustomizeItemControl();
             //ListBox.Items.Add(new CowpokeChili());
             if (DataContext is Order order)
             {
@@ -62,70 +63,85 @@ namespace PointOfSale
                     switch(button.Tag)
                     {
                         case "cowPokeChili":
-                            var entree = new CowpokeChili();
-                            var screen = new CustomizeItemControl();
-                            order.Add(entree);
-                            orderControl.swapScreen(screen);
+                            var cowpokeChili = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(cowpokeChili, screen);
                             break;
                         case "rustlersRibs":
-                            order.Add(new RustlersRibs());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var rustlersRibs = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(rustlersRibs, screen);
                             break;
                         case "pecosPulledPork":
-                            order.Add(new PecosPulledPork());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var pecosPulledPork = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(pecosPulledPork, screen);
                             break;
                         case "trailBurger":
-                            order.Add(new TrailBurger());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var trailBurger = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(trailBurger, screen);
                             break;
                         case "dakotaDoubleBurger":
-                            order.Add(new DakotaDoubleBurger());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var dakotaDoubleBurger = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(dakotaDoubleBurger, screen);
                             break;
                         case "texasTripleBurger":
-                            order.Add(new TexasTripleBurger());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var texasTripleBurger = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(texasTripleBurger, screen);
                             break;
                         case "angryChicken":
-                            order.Add(new AngryChicken());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var angryChicken = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(angryChicken, screen);
                             break;
                         case "chiliCheeseFries":
-                            order.Add(new ChiliCheeseFries());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var chiliCheeseFires = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(chiliCheeseFires, screen);
                             break;
                         case "cornDodgers":
-                            order.Add(new CornDodgers());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var cornDodgers = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(cornDodgers, screen);
                             break;
                         case "panDeCampo":
-                            order.Add(new PanDeCampo());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var panDeCamp = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(panDeCamp, screen);
                             break;
                         case "bakedBeans":
-                            order.Add(new BakedBeans());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var bakedBeans = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(bakedBeans, screen);
                             break;
                         case "jerkedSoda":
-                            order.Add(new JerkedSoda());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var jerkedSoda = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(jerkedSoda, screen);
                             break;
                         case "texasTea":
-                            order.Add(new TexasTea());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var texasTea = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(texasTea, screen);
                             break;
                         case "cowboyCoffee":
-                            order.Add(new CowboyCoffee());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var cowboyCoffee = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(cowboyCoffee, screen);
                             break;
                         case "water":
-                            order.Add(new Water());
-                            orderControl.swapScreen(new CustomizeItemControl());
+                            var water = new CowpokeChili();
+                            AddItemAndOpenCustomizationScreen(water, screen);
                             break;
                     }
                 }
             }
+        }
+
+        void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        {
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("DataContext Expected");
+
+            if(screen != null)
+            {
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("An ancerstor of order controll was null");
+
+                screen.DataContext = item;
+                orderControl.swapScreen(screen);
+            }
+
+            order.Add(item);
         }
     }
 }
