@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -18,5 +19,7 @@ namespace CowboyCafe.Data
         /// The specal instructions for this order item
         /// </summary>
         List<string> SpecialInstructions { get; }
+
+        event PropertyChangedEventHandler PropertyChanged;
     }
 }

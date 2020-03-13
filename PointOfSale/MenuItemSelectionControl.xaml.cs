@@ -67,59 +67,59 @@ namespace PointOfSale
                             AddItemAndOpenCustomizationScreen(cowpokeChili, screen);
                             break;
                         case "rustlersRibs":
-                            var rustlersRibs = new CowpokeChili();
+                            var rustlersRibs = new RustlersRibs();
                             AddItemAndOpenCustomizationScreen(rustlersRibs, screen);
                             break;
                         case "pecosPulledPork":
-                            var pecosPulledPork = new CowpokeChili();
+                            var pecosPulledPork = new PecosPulledPork();
                             AddItemAndOpenCustomizationScreen(pecosPulledPork, screen);
                             break;
                         case "trailBurger":
-                            var trailBurger = new CowpokeChili();
+                            var trailBurger = new TrailBurger();
                             AddItemAndOpenCustomizationScreen(trailBurger, screen);
                             break;
                         case "dakotaDoubleBurger":
-                            var dakotaDoubleBurger = new CowpokeChili();
+                            var dakotaDoubleBurger = new DakotaDoubleBurger();
                             AddItemAndOpenCustomizationScreen(dakotaDoubleBurger, screen);
                             break;
                         case "texasTripleBurger":
-                            var texasTripleBurger = new CowpokeChili();
+                            var texasTripleBurger = new TexasTripleBurger();
                             AddItemAndOpenCustomizationScreen(texasTripleBurger, screen);
                             break;
                         case "angryChicken":
-                            var angryChicken = new CowpokeChili();
+                            var angryChicken = new AngryChicken();
                             AddItemAndOpenCustomizationScreen(angryChicken, screen);
                             break;
                         case "chiliCheeseFries":
-                            var chiliCheeseFires = new CowpokeChili();
+                            var chiliCheeseFires = new ChiliCheeseFries();
                             AddItemAndOpenCustomizationScreen(chiliCheeseFires, screen);
                             break;
                         case "cornDodgers":
-                            var cornDodgers = new CowpokeChili();
+                            var cornDodgers = new CornDodgers();
                             AddItemAndOpenCustomizationScreen(cornDodgers, screen);
                             break;
                         case "panDeCampo":
-                            var panDeCamp = new CowpokeChili();
+                            var panDeCamp = new PanDeCampo();
                             AddItemAndOpenCustomizationScreen(panDeCamp, screen);
                             break;
                         case "bakedBeans":
-                            var bakedBeans = new CowpokeChili();
+                            var bakedBeans = new BakedBeans();
                             AddItemAndOpenCustomizationScreen(bakedBeans, screen);
                             break;
                         case "jerkedSoda":
-                            var jerkedSoda = new CowpokeChili();
+                            var jerkedSoda = new JerkedSoda();
                             AddItemAndOpenCustomizationScreen(jerkedSoda, screen);
                             break;
                         case "texasTea":
-                            var texasTea = new CowpokeChili();
+                            var texasTea = new TexasTea();
                             AddItemAndOpenCustomizationScreen(texasTea, screen);
                             break;
                         case "cowboyCoffee":
-                            var cowboyCoffee = new CowpokeChili();
+                            var cowboyCoffee = new CowboyCoffee();
                             AddItemAndOpenCustomizationScreen(cowboyCoffee, screen);
                             break;
                         case "water":
-                            var water = new CowpokeChili();
+                            var water = new Water();
                             AddItemAndOpenCustomizationScreen(water, screen);
                             break;
                     }

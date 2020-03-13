@@ -47,7 +47,6 @@ namespace CowboyCafe.Data
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-
         public Order()
         {
             LastOrderNumber++;
@@ -58,11 +57,15 @@ namespace CowboyCafe.Data
         /// <param name="item"></param>
         public void Add(IOrderItem item) 
         {
-            if(item is INotifyPropertyChanged notifier)
-            {
-                notifier.PropertyChanged += OnItemPropertyChange;
-            }
             items.Add(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            //if (item is INotifyPropertyChanged notifier)
+            //{
+            //    notifier.PropertyChanged += OnItemPropertyChange;
+            //}
+
         }
 
         /// <summary>
@@ -71,11 +74,14 @@ namespace CowboyCafe.Data
         /// <param name="item"></param>
         public void Remove(IOrderItem item) 
         {
-            if (item is INotifyPropertyChanged notifier)
-            {
-                notifier.PropertyChanged -= OnItemPropertyChange;
-            }
             items.Remove(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            //if (item is INotifyPropertyChanged notifier)
+            //{
+            //    notifier.PropertyChanged -= OnItemPropertyChange;
+            //}
         }
 
         private void OnItemPropertyChange(object sender, PropertyChangedEventArgs e)

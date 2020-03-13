@@ -1,18 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing a drink
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink: INotifyPropertyChanged
     {
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size = Size.Small;
+
         /// <summary>
         /// Gets the size of the drink
         /// </summary>
-        public virtual Size Size { get; set; } = Size.Small;
+        public virtual Size Size { 
+            get { return size; } 
+            set { 
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
+            } 
+        }
 
         /// <summary>
         /// Gets the price of the drink
@@ -33,6 +45,8 @@ namespace CowboyCafe.Data
         /// Gets the special Instructions of the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        
     }
 }
 

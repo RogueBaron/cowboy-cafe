@@ -1,23 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// a class repreesenting jerked soda
     /// </summary>
-    public class JerkedSoda : Drink, IOrderItem
+    public class JerkedSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private bool ice = true;
         /// <summary>
         /// if the soda has ice or not
         /// </summary>
-        public override bool Ice { get; set; } = true;
+        public override bool Ice { 
+            get { return ice; } 
+            set { 
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            } 
+        }
+
+        private SodaFlavor flavor;
 
         /// <summary>
         /// what flavor the soda is
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor { 
+            get { return flavor; }
+            set { 
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
+            }
+        }
 
         /// <summary>
         /// price of the soda

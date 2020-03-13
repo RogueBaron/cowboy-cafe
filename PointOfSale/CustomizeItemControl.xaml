@@ -7,6 +7,51 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock>CUSTOMIZE HERE</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock>CUSTOMIZE HERE</TextBlock>
+            <CheckBox Name="Bread" IsChecked="{Binding Bread}">Bread</CheckBox>
+            <CheckBox Name="Pickle" IsChecked="{Binding Pickle}">Pickle</CheckBox>
+            <CheckBox Name="Ice" IsChecked="{Binding Ice}">Ice</CheckBox>
+            <CheckBox Name="RoomForCream" IsChecked="{Binding RoomForCream}">Room For Cream</CheckBox>
+            <CheckBox Name="Decaf" IsChecked="{Binding Decaf}">Decaf</CheckBox>
+            <CheckBox Name="Cheese" IsChecked="{Binding Cheese}">Cheese</CheckBox>
+            <CheckBox Name="SourCream" IsChecked="{Binding SourCream}">SourCream</CheckBox>
+            <CheckBox Name="GreenOnions" IsChecked="{Binding GreenOnions}">GreenOnions</CheckBox>
+            <CheckBox Name="TortillaStrips" IsChecked="{Binding TortillaStrips}">TortillaStrips</CheckBox>
+            <CheckBox Name="Tomato" IsChecked="{Binding Tomato}">Tomato</CheckBox>
+            <CheckBox Name="Lettuce" IsChecked="{Binding Lettuce}">Lettuce</CheckBox>
+            <CheckBox Name="Mayo" IsChecked="{Binding Mayo}">Mayo</CheckBox>
+            <CheckBox Name="Ketchup" IsChecked="{Binding Ketchup}">Ketchup</CheckBox>
+            <CheckBox Name="Mustard" IsChecked="{Binding Mustard}">Mustard</CheckBox>
+            <CheckBox Name="Bun" IsChecked="{Binding Bun}">Bun</CheckBox>
+            <CheckBox Name="Sweet" IsChecked="{Binding Sweet}">Sweet</CheckBox>
+            <CheckBox Name="Lemon" IsChecked="{Binding Lemon}">Lemon</CheckBox>
+            <CheckBox Name="Bacon" IsChecked="{Binding Bacon}">Bacon</CheckBox>
+            <CheckBox Name="Egg" IsChecked="{Binding Egg}">Egg</CheckBox>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock>Item Size</TextBlock>
+                <RadioButton Name="Small" IsChecked="{Binding Size}">Small</RadioButton>
+                <RadioButton Name="Medium" IsChecked="{Binding Size}">Medium</RadioButton>
+                <RadioButton Name="Large" IsChecked="{Binding Size}">Large</RadioButton>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <TextBlock>Soda Flavor</TextBlock>
+                <RadioButton Name="CreamSoda">Cream Soda</RadioButton>
+                <RadioButton Name="OrangeSoda">Orange Soda</RadioButton>
+                <RadioButton Name="Sarsparilla">Sarsparilla</RadioButton>
+                <RadioButton Name="BirchBeer">Birch Beer</RadioButton>
+                <RadioButton Name="RootBeer">Root Beer</RadioButton>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

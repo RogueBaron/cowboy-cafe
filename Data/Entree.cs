@@ -10,6 +10,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets the price of the entree
         /// </summary>
@@ -24,9 +27,6 @@ namespace CowboyCafe.Data
         /// Gets the special Instructions of the entree
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
 
     }
 }

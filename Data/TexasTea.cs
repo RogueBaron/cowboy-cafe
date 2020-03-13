@@ -1,28 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// a class representing texas tea
     /// </summary>
-    public class TexasTea : Drink, IOrderItem
+    public class TexasTea : Drink, IOrderItem, INotifyPropertyChanged
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private bool ice = true;
+
         /// <summary>
         /// if the tea has ice or not
         /// </summary>
-        public override bool Ice { get; set; } = true;
+        public override bool Ice { 
+            get { return ice; } 
+            set { 
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            } 
+        }
+
+        private bool sweet = true;
 
         /// <summary>
         /// if the tea is sweet or not
         /// </summary>
-        public bool Sweet { get; set; } = true;
+        public bool Sweet { 
+            get { return sweet; } 
+            set { 
+                sweet = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private bool lemon = false;
 
         /// <summary>
         /// if the tea has a lemonn or not
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon { 
+            get { return lemon; } 
+            set { 
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            } 
+        }
 
         /// <summary>
         /// price of the tea

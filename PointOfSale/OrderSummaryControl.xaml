@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -19,6 +18,9 @@
         <StackPanel Grid.Row="0" Grid.Column="0">
             <TextBlock FontSize="18" Text="Order: ">
                 <TextBlock FontSize="18" Text="{Binding Path=OrderNumber}" Name="OrderText"></TextBlock>
+            </TextBlock>
+            <TextBlock FontSize="18" Text="Subtotal: ">
+                <TextBlock FontSize="18" Text="{Binding Path=Subtotal, StringFormat= c}"></TextBlock>
             </TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
@@ -30,15 +32,11 @@
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock Text="{Binding Path=Price, StringFormat= c}"></TextBlock>
+                            <ListView ItemsSource="{Binding Path=SpecialInstructions}"></ListView>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
-        <StackPanel Grid.Row="2">
-            <TextBlock FontSize="18" Text="Subtotal: ">
-                <TextBlock FontSize="18" Text="{Binding Path=Subtotal, StringFormat= c}"></TextBlock>
-            </TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

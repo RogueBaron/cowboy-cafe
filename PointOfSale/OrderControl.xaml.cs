@@ -32,7 +32,7 @@ namespace PointOfSale
 
         private void AddItemSelection_Click(object sender, RoutedEventArgs e)
         {
-            //does nothing atm 
+            Container.Child = new MenuItemSelectionControl(); 
         }
 
         private void AddCancelOrder_Click(object sender, RoutedEventArgs e)

@@ -10,6 +10,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public class AngryChicken : Entree, IOrderItem, INotifyPropertyChanged
     {
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         private bool bread = true;
         /// <summary>
         /// If the chicken has bread
@@ -26,7 +29,7 @@ namespace CowboyCafe.Data
 
         private bool pickle = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+    
 
         /// <summary>
         /// If the chicken has a pickle
@@ -36,7 +39,7 @@ namespace CowboyCafe.Data
             get { return pickle; }
             set { 
                 pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bread"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
