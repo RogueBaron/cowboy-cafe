@@ -37,14 +37,21 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock>Item Size</TextBlock>
-                <RadioButton Name="Small" IsChecked="{Binding Size}">Small</RadioButton>
-                <RadioButton Name="Medium" IsChecked="{Binding Size}">Medium</RadioButton>
-                <RadioButton Name="Large" IsChecked="{Binding Size}">Large</RadioButton>
+                <TextBlock>Side Size</TextBlock>
+                <RadioButton Name="SmallSide">Small</RadioButton>
+                <RadioButton Name="MediumSide">Medium</RadioButton>
+                <RadioButton Name="LargeSide">Large</RadioButton>
             </StackPanel>
             <StackPanel Grid.Row="1">
+                <TextBlock>Drink Size</TextBlock>
+                <RadioButton Name="SmallDrink">Small</RadioButton>
+                <RadioButton Name="MediumDrink">Medium</RadioButton>
+                <RadioButton Name="LargeDrink">Large</RadioButton>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
                 <TextBlock>Soda Flavor</TextBlock>
                 <RadioButton Name="CreamSoda">Cream Soda</RadioButton>
                 <RadioButton Name="OrangeSoda">Orange Soda</RadioButton>
