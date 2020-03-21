@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 
 namespace PointOfSale
@@ -24,134 +25,147 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            SmallSide.Click += SetSizeSide;
-            MediumSide.Click += SetSizeSide;
-            LargeSide.Click += SetSizeSide;
+            //configureAllButtons();
 
-            SmallDrink.Click += SetSizeDrink;
-            MediumDrink.Click += SetSizeDrink;
-            LargeDrink.Click += SetSizeDrink;
-
-            CreamSoda.Click += SetFlavorDrink;
-            OrangeSoda.Click += SetFlavorDrink;
-            Sarsparilla.Click += SetFlavorDrink;
-            BirchBeer.Click += SetFlavorDrink;
-            RootBeer.Click += SetFlavorDrink;
-
-
-            //disbaleAllButtons();
         }
 
 
-        private void SetSizeSide(object sender, RoutedEventArgs e)
+        private void addSize_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Side side)
+            var ancestor = this.FindAncestor<OrderControl>();
+
+            if(ancestor is OrderControl)
             {
-                    if (sender is RadioButton radio)
-                    {
-                        switch (radio.Name)
-                        {
-                            case "SmallSide":
-                                side.Size = CowboyCafe.Data.Size.Small;
-                                break;
-                            case "MediumSide":
-                                side.Size = CowboyCafe.Data.Size.Medium;
-                                break;
-                            case "LargeSide":
-                                side.Size = CowboyCafe.Data.Size.Large;
-                                break;
-                        }
-                }
+                ancestor.changeEnumSize();
             }
         }
 
-
-        private void SetSizeDrink(object sender, RoutedEventArgs e)
+        private void addFlavor_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Drink drink)
+            var ancestor = this.FindAncestor<OrderControl>();
+
+            if (ancestor is OrderControl)
             {
-                if (sender is RadioButton radio)
-                {
-                    switch (radio.Name)
-                    {
-                        case "SmallDrink":
-                            drink.Size = CowboyCafe.Data.Size.Small;
-                            break;
-                        case "MediumDrink":
-                            drink.Size = CowboyCafe.Data.Size.Medium;
-                            break;
-                        case "LargeDrink":
-                            drink.Size = CowboyCafe.Data.Size.Large;
-                            break;
-                    }
-                }
+                ancestor.changeEnumFlavor();
             }
         }
 
-        private void SetFlavorDrink(object sender, RoutedEventArgs e)
+        private void configureAllButtons()
         {
-            if (DataContext is JerkedSoda drink)
+            
+            Bread.Visibility =  Visibility.Hidden;
+            Pickle.Visibility = Visibility.Hidden;
+            Ice.Visibility = Visibility.Hidden;
+            RoomForCream.Visibility = Visibility.Hidden;
+            Decaf.Visibility = Visibility.Hidden;
+            Cheese.Visibility = Visibility.Hidden;
+            SourCream.Visibility = Visibility.Hidden;
+            GreenOnions.Visibility = Visibility.Hidden;
+            TortillaStrips.Visibility = Visibility.Hidden;
+            Tomato.Visibility = Visibility.Hidden;
+            Lettuce.Visibility = Visibility.Hidden;
+            Mayo.Visibility = Visibility.Hidden;
+            Ketchup.Visibility = Visibility.Hidden;
+            Mustard.Visibility = Visibility.Hidden;
+            Bun.Visibility = Visibility.Hidden;
+            Sweet.Visibility = Visibility.Hidden;
+            Lemon.Visibility = Visibility.Hidden;
+            Bacon.Visibility = Visibility.Hidden;
+            Egg.Visibility = Visibility.Hidden;
+
+            SizeBox.Visibility = Visibility.Hidden;
+            FlavorBox.Visibility = Visibility.Hidden;
+
+            if (DataContext is AngryChicken ac)
             {
-                if (sender is RadioButton radio)
-                {
-                    switch (radio.Name)
-                    {
-                        case "BirchBeer":
-                            drink.Flavor = CowboyCafe.Data.SodaFlavor.BirchBeer;
-                            break;
-                        case "CreamSoda":
-                            drink.Flavor = CowboyCafe.Data.SodaFlavor.CreamSoda;
-                            break;
-                        case "OrangeSoda":
-                            drink.Flavor = CowboyCafe.Data.SodaFlavor.OrangeSoda;
-                            break;
-                        case "RootBeer":
-                            drink.Flavor = CowboyCafe.Data.SodaFlavor.RootBeer;
-                            break;
-                        case "Sarsparilla":
-                            drink.Flavor = CowboyCafe.Data.SodaFlavor.Sarsparilla;
-                            break;
-                    }
-                }
+                Bread.Visibility = Visibility.Visible;
+                Pickle.Visibility = Visibility.Visible;
             }
-        }
 
 
-        private void disbaleAllButtons()
-        {
-            Bread.IsEnabled = false;
-            Pickle.IsEnabled = false;
-            Ice.IsEnabled = false;
-            RoomForCream.IsEnabled = false;
-            Decaf.IsEnabled = false;
-            Cheese.IsEnabled = false;
-            SourCream.IsEnabled = false;
-            GreenOnions.IsEnabled = false;
-            TortillaStrips.IsEnabled = false;
-            Tomato.IsEnabled = false;
-            Lettuce.IsEnabled = false;
-            Mayo.IsEnabled = false;
-            Ketchup.IsEnabled = false;
-            Mustard.IsEnabled = false;
-            Bun.IsEnabled = false;
-            Sweet.IsEnabled = false;
-            Lemon.IsEnabled = false;
-            Bacon.IsEnabled = false;
-            Egg.IsEnabled = false;
+            if(DataContext is Side s)
+            {
+                SizeBox.Visibility = Visibility.Visible;
+            }
 
-            SmallSide.IsEnabled = false;
-            MediumSide.IsEnabled = false;
-            LargeSide.IsEnabled = false;
+            if(DataContext is CowboyCafe.Data.CowboyCoffee cc)
+            {
+                Ice.Visibility = Visibility.Visible;
+                RoomForCream.Visibility = Visibility.Visible;
+                Decaf.Visibility = Visibility.Visible;
+                SizeBox.Visibility = Visibility.Visible;
+            }
 
-            SmallDrink.IsEnabled = false;
-            MediumDrink.IsEnabled = false;
-            LargeDrink.IsEnabled = false;
+            if(DataContext is CowpokeChili cpc)
+            {
+                Cheese.Visibility = Visibility.Hidden;
+                SourCream.Visibility = Visibility.Hidden;
+                GreenOnions.Visibility = Visibility.Hidden;
+                TortillaStrips.Visibility = Visibility.Hidden;
+            }
 
-            CreamSoda.IsEnabled = false;
-            OrangeSoda.IsEnabled = false;
-            Sarsparilla.IsEnabled = false;
-            BirchBeer.IsEnabled = false;
-            RootBeer.IsEnabled = false;
+            if(DataContext is DakotaDoubleBurger ddb)
+            {
+                Tomato.Visibility = Visibility.Visible;
+                Lettuce.Visibility = Visibility.Visible;
+                Mayo.Visibility = Visibility.Visible;
+                Ketchup.Visibility = Visibility.Visible;
+                Mustard.Visibility = Visibility.Visible;
+                Bun.Visibility = Visibility.Visible;
+                Cheese.Visibility = Visibility.Visible;
+                Pickle.Visibility = Visibility.Visible;
+            }
+
+            if (DataContext is JerkedSoda js)
+            {
+                SizeBox.Visibility = Visibility.Visible;
+                FlavorBox.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Hidden;
+            }
+
+            if(DataContext is PecosPulledPork ppp) 
+            {
+                Bread.Visibility = Visibility.Visible;
+                Pickle.Visibility = Visibility.Visible;
+            }
+
+            if(DataContext is TexasTea tt)
+            {
+                Ice.Visibility = Visibility.Visible;
+                Sweet.Visibility = Visibility.Visible;
+                Lemon.Visibility = Visibility.Visible;
+                SizeBox.Visibility = Visibility.Visible;
+            }
+
+            if(DataContext is TexasTripleBurger ttb)
+            {
+                Bacon.Visibility = Visibility.Visible;
+                Egg.Visibility = Visibility.Visible;
+                Tomato.Visibility = Visibility.Visible;
+                Lettuce.Visibility = Visibility.Visible;
+                Mayo.Visibility = Visibility.Visible;
+                Ketchup.Visibility = Visibility.Visible;
+                Mustard.Visibility = Visibility.Visible;
+                Bun.Visibility = Visibility.Visible;
+                Cheese.Visibility = Visibility.Visible;
+                Pickle.Visibility = Visibility.Visible;
+            }
+
+            if(DataContext is TrailBurger tb)
+            {
+                Ketchup.Visibility = Visibility.Visible;
+                Mustard.Visibility = Visibility.Visible;
+                Bun.Visibility = Visibility.Visible;
+                Cheese.Visibility = Visibility.Visible;
+                Pickle.Visibility = Visibility.Visible;
+            }
+
+            if(DataContext is Water w)
+            {
+                Ice.Visibility = Visibility.Visible;
+                Lemon.Visibility = Visibility.Visible;
+                SizeBox.Visibility = Visibility.Visible;
+            }
         }
     }
 }

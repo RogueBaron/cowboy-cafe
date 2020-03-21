@@ -68,7 +68,7 @@ namespace PointOfSale
                             break;
                         case "rustlersRibs":
                             var rustlersRibs = new RustlersRibs();
-                            AddItemAndOpenCustomizationScreen(rustlersRibs, screen);
+                            AddItemAndOpenCustomizationScreen(rustlersRibs, null);
                             break;
                         case "pecosPulledPork":
                             var pecosPulledPork = new PecosPulledPork();

@@ -30,6 +30,22 @@ namespace PointOfSale
             
         }
 
+        public void changeEnumSize()
+        {
+            if(DataContext is Order order)
+            {
+                order.changeEnumSize();
+            }
+        }
+
+        public void changeEnumFlavor()
+        {
+            if (DataContext is Order order)
+            {
+                order.changeEnumFlavor();
+            }
+        }
+
         private void AddItemSelection_Click(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl(); 

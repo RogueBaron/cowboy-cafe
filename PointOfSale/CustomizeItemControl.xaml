@@ -4,60 +4,149 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:data="clr-namespace:CowboyCafe.Data;assembly=CowboyCafe.Data"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}" 
+                            x:Key="enumSize">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}" 
+                            x:Key="enumFlavor">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:SodaFlavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <TextBlock>CUSTOMIZE HERE</TextBlock>
-            <CheckBox Name="Bread" IsChecked="{Binding Bread}">Bread</CheckBox>
-            <CheckBox Name="Pickle" IsChecked="{Binding Pickle}">Pickle</CheckBox>
-            <CheckBox Name="Ice" IsChecked="{Binding Ice}">Ice</CheckBox>
-            <CheckBox Name="RoomForCream" IsChecked="{Binding RoomForCream}">Room For Cream</CheckBox>
-            <CheckBox Name="Decaf" IsChecked="{Binding Decaf}">Decaf</CheckBox>
-            <CheckBox Name="Cheese" IsChecked="{Binding Cheese}">Cheese</CheckBox>
-            <CheckBox Name="SourCream" IsChecked="{Binding SourCream}">SourCream</CheckBox>
-            <CheckBox Name="GreenOnions" IsChecked="{Binding GreenOnions}">GreenOnions</CheckBox>
-            <CheckBox Name="TortillaStrips" IsChecked="{Binding TortillaStrips}">TortillaStrips</CheckBox>
-            <CheckBox Name="Tomato" IsChecked="{Binding Tomato}">Tomato</CheckBox>
-            <CheckBox Name="Lettuce" IsChecked="{Binding Lettuce}">Lettuce</CheckBox>
-            <CheckBox Name="Mayo" IsChecked="{Binding Mayo}">Mayo</CheckBox>
-            <CheckBox Name="Ketchup" IsChecked="{Binding Ketchup}">Ketchup</CheckBox>
-            <CheckBox Name="Mustard" IsChecked="{Binding Mustard}">Mustard</CheckBox>
-            <CheckBox Name="Bun" IsChecked="{Binding Bun}">Bun</CheckBox>
-            <CheckBox Name="Sweet" IsChecked="{Binding Sweet}">Sweet</CheckBox>
-            <CheckBox Name="Lemon" IsChecked="{Binding Lemon}">Lemon</CheckBox>
-            <CheckBox Name="Bacon" IsChecked="{Binding Bacon}">Bacon</CheckBox>
-            <CheckBox Name="Egg" IsChecked="{Binding Egg}">Egg</CheckBox>
-        </StackPanel>
+        <ScrollViewer Grid.Column="0">
+            <StackPanel >
+                <TextBlock>CUSTOMIZE HERE</TextBlock>
+                <CheckBox Name="Bread" IsChecked="{Binding Bread}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Bread
+                </CheckBox>
+                <CheckBox Name="Pickle" IsChecked="{Binding Pickle}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Pickle
+                </CheckBox>
+                <CheckBox Name="Ice" IsChecked="{Binding Ice}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Ice
+                </CheckBox>
+                <CheckBox Name="RoomForCream" IsChecked="{Binding RoomForCream}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Room For Cream
+                </CheckBox>
+                <CheckBox Name="Decaf" IsChecked="{Binding Decaf}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Decaf
+                </CheckBox>
+                <CheckBox Name="Cheese" IsChecked="{Binding Cheese}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Cheese
+                </CheckBox>
+                <CheckBox Name="SourCream" IsChecked="{Binding SourCream}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> SourCream
+                </CheckBox>
+                <CheckBox Name="GreenOnions" IsChecked="{Binding GreenOnions}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> GreenOnions
+                </CheckBox>
+                <CheckBox Name="TortillaStrips" IsChecked="{Binding TortillaStrips}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> TortillaStrips
+                </CheckBox>
+                <CheckBox Name="Tomato" IsChecked="{Binding Tomato}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Tomato
+                </CheckBox>
+                <CheckBox Name="Lettuce" IsChecked="{Binding Lettuce}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Lettuce
+                </CheckBox>
+                <CheckBox Name="Mayo" IsChecked="{Binding Mayo}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Mayo
+                </CheckBox>
+                <CheckBox Name="Ketchup" IsChecked="{Binding Ketchup}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Ketchup
+                </CheckBox>
+                <CheckBox Name="Mustard" IsChecked="{Binding Mustard}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Mustard
+                </CheckBox>
+                <CheckBox Name="Bun" IsChecked="{Binding Bun}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Bun
+                </CheckBox>
+                <CheckBox Name="Sweet" IsChecked="{Binding Sweet}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Sweet
+                </CheckBox>
+                <CheckBox Name="Lemon" IsChecked="{Binding Lemon}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Lemon
+                </CheckBox>
+                <CheckBox Name="Bacon" IsChecked="{Binding Bacon}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Bacon
+                </CheckBox>
+                <CheckBox Name="Egg" IsChecked="{Binding Egg}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform> Egg
+                </CheckBox>
+            </StackPanel>
+        </ScrollViewer>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
                 <TextBlock>Side Size</TextBlock>
-                <RadioButton Name="SmallSide">Small</RadioButton>
-                <RadioButton Name="MediumSide">Medium</RadioButton>
-                <RadioButton Name="LargeSide">Large</RadioButton>
+                <ListBox x:Name="SizeBox" FontSize="20"
+                    ItemsSource="{Binding Source={StaticResource enumSize}}" 
+                    SelectedItem="{Binding Path=Size}"
+                    SelectionChanged="addSize_Click"/>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <TextBlock>Drink Size</TextBlock>
-                <RadioButton Name="SmallDrink">Small</RadioButton>
-                <RadioButton Name="MediumDrink">Medium</RadioButton>
-                <RadioButton Name="LargeDrink">Large</RadioButton>
-            </StackPanel>
-            <StackPanel Grid.Row="2">
                 <TextBlock>Soda Flavor</TextBlock>
-                <RadioButton Name="CreamSoda">Cream Soda</RadioButton>
-                <RadioButton Name="OrangeSoda">Orange Soda</RadioButton>
-                <RadioButton Name="Sarsparilla">Sarsparilla</RadioButton>
-                <RadioButton Name="BirchBeer">Birch Beer</RadioButton>
-                <RadioButton Name="RootBeer">Root Beer</RadioButton>
+                <ListBox x:Name="FlavorBox" FontSize="20"
+                    ItemsSource="{Binding Source={StaticResource enumFlavor}}" 
+                    SelectedItem="{Binding Path=Flavor}"
+                    SelectionChanged="addFlavor_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
