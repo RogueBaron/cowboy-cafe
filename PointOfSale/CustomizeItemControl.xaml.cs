@@ -76,95 +76,98 @@ namespace PointOfSale
             SizeBox.Visibility = Visibility.Hidden;
             FlavorBox.Visibility = Visibility.Hidden;
 
-            if (DataContext is AngryChicken ac)
+            if(DataContext is IOrderItem item)
             {
-                Bread.Visibility = Visibility.Visible;
-                Pickle.Visibility = Visibility.Visible;
-            }
 
+                if (item is AngryChicken)
+                {
+                    Bread.Visibility = Visibility.Visible;
+                    Pickle.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is Side s)
-            {
-                SizeBox.Visibility = Visibility.Visible;
-            }
+                if (item is Side s)
+                {
+                    SizeBox.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is CowboyCafe.Data.CowboyCoffee cc)
-            {
-                Ice.Visibility = Visibility.Visible;
-                RoomForCream.Visibility = Visibility.Visible;
-                Decaf.Visibility = Visibility.Visible;
-                SizeBox.Visibility = Visibility.Visible;
-            }
+                if (item is CowboyCoffee cc)
+                {
+                    Ice.Visibility = Visibility.Visible;
+                    RoomForCream.Visibility = Visibility.Visible;
+                    Decaf.Visibility = Visibility.Visible;
+                    SizeBox.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is CowpokeChili cpc)
-            {
-                Cheese.Visibility = Visibility.Hidden;
-                SourCream.Visibility = Visibility.Hidden;
-                GreenOnions.Visibility = Visibility.Hidden;
-                TortillaStrips.Visibility = Visibility.Hidden;
-            }
+                if (item is CowpokeChili cpc)
+                {
+                    Cheese.Visibility = Visibility.Hidden;
+                    SourCream.Visibility = Visibility.Hidden;
+                    GreenOnions.Visibility = Visibility.Hidden;
+                    TortillaStrips.Visibility = Visibility.Hidden;
+                }
 
-            if(DataContext is DakotaDoubleBurger ddb)
-            {
-                Tomato.Visibility = Visibility.Visible;
-                Lettuce.Visibility = Visibility.Visible;
-                Mayo.Visibility = Visibility.Visible;
-                Ketchup.Visibility = Visibility.Visible;
-                Mustard.Visibility = Visibility.Visible;
-                Bun.Visibility = Visibility.Visible;
-                Cheese.Visibility = Visibility.Visible;
-                Pickle.Visibility = Visibility.Visible;
-            }
+                if (item is DakotaDoubleBurger ddb)
+                {
+                    Tomato.Visibility = Visibility.Visible;
+                    Lettuce.Visibility = Visibility.Visible;
+                    Mayo.Visibility = Visibility.Visible;
+                    Ketchup.Visibility = Visibility.Visible;
+                    Mustard.Visibility = Visibility.Visible;
+                    Bun.Visibility = Visibility.Visible;
+                    Cheese.Visibility = Visibility.Visible;
+                    Pickle.Visibility = Visibility.Visible;
+                }
 
-            if (DataContext is JerkedSoda js)
-            {
-                SizeBox.Visibility = Visibility.Visible;
-                FlavorBox.Visibility = Visibility.Visible;
-                Ice.Visibility = Visibility.Hidden;
-            }
+                if (item is JerkedSoda js)
+                {
+                    SizeBox.Visibility = Visibility.Visible;
+                    FlavorBox.Visibility = Visibility.Visible;
+                    Ice.Visibility = Visibility.Hidden;
+                }
 
-            if(DataContext is PecosPulledPork ppp) 
-            {
-                Bread.Visibility = Visibility.Visible;
-                Pickle.Visibility = Visibility.Visible;
-            }
+                if (item is PecosPulledPork ppp)
+                {
+                    Bread.Visibility = Visibility.Visible;
+                    Pickle.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is TexasTea tt)
-            {
-                Ice.Visibility = Visibility.Visible;
-                Sweet.Visibility = Visibility.Visible;
-                Lemon.Visibility = Visibility.Visible;
-                SizeBox.Visibility = Visibility.Visible;
-            }
+                if (item is TexasTea tt)
+                {
+                    Ice.Visibility = Visibility.Visible;
+                    Sweet.Visibility = Visibility.Visible;
+                    Lemon.Visibility = Visibility.Visible;
+                    SizeBox.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is TexasTripleBurger ttb)
-            {
-                Bacon.Visibility = Visibility.Visible;
-                Egg.Visibility = Visibility.Visible;
-                Tomato.Visibility = Visibility.Visible;
-                Lettuce.Visibility = Visibility.Visible;
-                Mayo.Visibility = Visibility.Visible;
-                Ketchup.Visibility = Visibility.Visible;
-                Mustard.Visibility = Visibility.Visible;
-                Bun.Visibility = Visibility.Visible;
-                Cheese.Visibility = Visibility.Visible;
-                Pickle.Visibility = Visibility.Visible;
-            }
+                if (item is TexasTripleBurger ttb)
+                {
+                    Bacon.Visibility = Visibility.Visible;
+                    Egg.Visibility = Visibility.Visible;
+                    Tomato.Visibility = Visibility.Visible;
+                    Lettuce.Visibility = Visibility.Visible;
+                    Mayo.Visibility = Visibility.Visible;
+                    Ketchup.Visibility = Visibility.Visible;
+                    Mustard.Visibility = Visibility.Visible;
+                    Bun.Visibility = Visibility.Visible;
+                    Cheese.Visibility = Visibility.Visible;
+                    Pickle.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is TrailBurger tb)
-            {
-                Ketchup.Visibility = Visibility.Visible;
-                Mustard.Visibility = Visibility.Visible;
-                Bun.Visibility = Visibility.Visible;
-                Cheese.Visibility = Visibility.Visible;
-                Pickle.Visibility = Visibility.Visible;
-            }
+                if (item is TrailBurger tb)
+                {
+                    Ketchup.Visibility = Visibility.Visible;
+                    Mustard.Visibility = Visibility.Visible;
+                    Bun.Visibility = Visibility.Visible;
+                    Cheese.Visibility = Visibility.Visible;
+                    Pickle.Visibility = Visibility.Visible;
+                }
 
-            if(DataContext is Water w)
-            {
-                Ice.Visibility = Visibility.Visible;
-                Lemon.Visibility = Visibility.Visible;
-                SizeBox.Visibility = Visibility.Visible;
+                if (item is Water w)
+                {
+                    Ice.Visibility = Visibility.Visible;
+                    Lemon.Visibility = Visibility.Visible;
+                    SizeBox.Visibility = Visibility.Visible;
+                }
             }
         }
     }

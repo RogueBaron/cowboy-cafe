@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -125,6 +126,37 @@ namespace CowboyCafe.DataTests
             if (ice && !lemon) Assert.Empty(tea.SpecialInstructions);
             if (ice && lemon || !ice && !lemon) Assert.Single(tea.SpecialInstructions);
             if (!ice && lemon) Assert.Equal(2, tea.SpecialInstructions.Count);
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var item = new TexasTea();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(item);
+        }
+
+        [Fact]
+        public void ChangingTexasTeaPropertyShouldInvokePropertyChanges()
+        {
+            var tea = new TexasTea();
+            Assert.PropertyChanged(tea, "Ice", () => {
+                tea.Ice = false;
+            });
+            Assert.PropertyChanged(tea, "SpecialInstructions", () => {
+                tea.Ice = false;
+            });
+            Assert.PropertyChanged(tea, "Sweet", () => {
+                tea.Sweet = false;
+            });
+            Assert.PropertyChanged(tea, "SpecialInstructions", () => {
+                tea.Sweet = false;
+            });
+            Assert.PropertyChanged(tea, "Lemon", () => {
+                tea.Lemon = false;
+            });
+            Assert.PropertyChanged(tea, "SpecialInstructions", () => {
+                tea.Lemon = false;
+            });
         }
     }
 }

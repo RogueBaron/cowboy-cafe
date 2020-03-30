@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -58,6 +59,31 @@ namespace CowboyCafe.DataTests
             pulledPork.Pickle = false;
             Assert.Contains("hold pickle", pulledPork.SpecialInstructions);
             Assert.Contains("hold bread", pulledPork.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var item = new PecosPulledPork();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(item);
+        }
+
+        [Fact]
+        public void ChangingPecosPulledPorkPropertyShouldInvokePropertyChanges()
+        {
+            var pork = new PecosPulledPork();
+            Assert.PropertyChanged(pork, "Bread", () => {
+                pork.Bread = false;
+            });
+            Assert.PropertyChanged(pork, "SpecialInstructions", () => {
+                pork.Bread = false;
+            });
+            Assert.PropertyChanged(pork, "Pickle", () => {
+                pork.Pickle = false;
+            });
+            Assert.PropertyChanged(pork, "SpecialInstructions", () => {
+                pork.Pickle = false;
+            });
         }
     }
 }

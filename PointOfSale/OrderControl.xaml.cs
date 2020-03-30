@@ -27,7 +27,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             DataContext = new Order();
-            
+
         }
 
         public void changeEnumSize()
@@ -45,6 +45,12 @@ namespace PointOfSale
                 order.changeEnumFlavor();
             }
         }
+
+        private void EditSelectedItem(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 
         private void AddItemSelection_Click(object sender, RoutedEventArgs e)
         {
@@ -64,6 +70,15 @@ namespace PointOfSale
         public void swapScreen(UIElement element)
         {
             Container.Child = element;
+        }
+
+        public void editScreen(IOrderItem item)
+        {
+
+            var screen = new CustomizeItemControl();
+            screen.DataContext = item;
+            swapScreen(screen);
+
         }
     }
 }

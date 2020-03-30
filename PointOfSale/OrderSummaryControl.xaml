@@ -24,7 +24,7 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <ListBox ItemsSource="{Binding Path= Items}"></ListBox>
+            <ListBox ItemsSource="{Binding Path= Items}" SelectionChanged="swapSelection"></ListBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <ListView ItemsSource="{Binding Path= Items}">
@@ -33,6 +33,7 @@
                         <StackPanel>
                             <TextBlock Text="{Binding Path=Price, StringFormat= c}"></TextBlock>
                             <ListView ItemsSource="{Binding Path=SpecialInstructions}"></ListView>
+                            <Button Click="deleteItem">X</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

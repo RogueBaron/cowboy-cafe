@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -103,6 +104,49 @@ namespace CowboyCafe.DataTests
             Assert.Contains("hold bun", burger.SpecialInstructions);
             Assert.Contains("hold cheese", burger.SpecialInstructions);
             Assert.Contains("hold pickle", burger.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var item = new TrailBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(item);
+        }
+
+        [Fact]
+        public void ChangingTrailBurgerPropertyShouldInvokePropertyChanges()
+        {
+            var burger = new TrailBurger();
+            Assert.PropertyChanged(burger, "Ketchup", () => {
+                burger.Ketchup = false;
+            });
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => {
+                burger.Ketchup = false;
+            });
+            Assert.PropertyChanged(burger, "Mustard", () => {
+                burger.Mustard = false;
+            });
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => {
+                burger.Mustard = false;
+            });
+            Assert.PropertyChanged(burger, "Pickle", () => {
+                burger.Pickle = false;
+            });
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => {
+                burger.Pickle = false;
+            });
+            Assert.PropertyChanged(burger, "Cheese", () => {
+                burger.Cheese = false;
+            });
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => {
+                burger.Cheese = false;
+            });
+            Assert.PropertyChanged(burger, "Bun", () => {
+                burger.Bun = false;
+            });
+            Assert.PropertyChanged(burger, "SpecialInstructions", () => {
+                burger.Bun = false;
+            });
         }
     }
 }

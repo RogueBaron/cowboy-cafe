@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
@@ -92,6 +93,43 @@ namespace CowboyCafe.DataTests
             Assert.Contains("hold cheese", chili.SpecialInstructions);
             Assert.Contains("hold sour cream", chili.SpecialInstructions);
             Assert.Contains("hold green onions", chili.SpecialInstructions);
+        }
+
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var item = new CowpokeChili();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(item);
+        }
+
+        [Fact]
+        public void ChangingCowPokeChiliropertyShouldInvokePropertyChanges()
+        {
+            var cowpoke = new CowpokeChili();
+            Assert.PropertyChanged(cowpoke, "Cheese", () => {
+                cowpoke.Cheese = false;
+            });
+            Assert.PropertyChanged(cowpoke, "SpecialInstructions", () => {
+                cowpoke.Cheese = false;
+            });
+            Assert.PropertyChanged(cowpoke, "SourCream", () => {
+                cowpoke.SourCream = false;
+            });
+            Assert.PropertyChanged(cowpoke, "SpecialInstructions", () => {
+                cowpoke.SourCream = false;
+            });
+            Assert.PropertyChanged(cowpoke, "GreenOnions", () => {
+                cowpoke.GreenOnions = false;
+            });
+            Assert.PropertyChanged(cowpoke, "SpecialInstructions", () => {
+                cowpoke.GreenOnions = false;
+            });
+            Assert.PropertyChanged(cowpoke, "TortillaStrips", () => {
+                cowpoke.TortillaStrips = false;
+            });
+            Assert.PropertyChanged(cowpoke, "SpecialInstructions", () => {
+                cowpoke.TortillaStrips = false;
+            });
         }
     }
 }

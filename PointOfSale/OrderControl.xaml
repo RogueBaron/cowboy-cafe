@@ -28,10 +28,10 @@
         </StackPanel>
         
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
-            <local:OrderSummaryControl></local:OrderSummaryControl>
+            <local:OrderSummaryControl x:Name="OSC"></local:OrderSummaryControl>
         </StackPanel>
         <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
-            <local:MenuItemSelectionControl></local:MenuItemSelectionControl>
+            <local:MenuItemSelectionControl x:Name="MSC"></local:MenuItemSelectionControl>
         </Border>
     </Grid>
 </UserControl>

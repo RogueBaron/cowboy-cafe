@@ -8,8 +8,8 @@ using CowboyCafe.Data;
 
 namespace CowboyCafe.DataTests
 {
-
-    class MockOrderItem : IOrderItem
+ /*
+    class MockOrderItem : IOrderItem, 
     {
         public double Price { get; set; }
 
@@ -91,4 +91,5 @@ namespace CowboyCafe.DataTests
 
 
     }
+    */
 }
