@@ -57,6 +57,10 @@ namespace PointOfSale
             var orderControl = this.FindAncestor<OrderControl>();
             var screen = new CustomizeItemControl();
             //ListBox.Items.Add(new CowpokeChili());
+
+            var result = DataContext is IOrderItem;
+
+
             if (DataContext is Order order)
             {
                 if (sender is Button button)

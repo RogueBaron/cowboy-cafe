@@ -29,7 +29,6 @@ namespace PointOfSale
 
         }
 
-
         private void addSize_Click(object sender, RoutedEventArgs e)
         {
             var ancestor = this.FindAncestor<OrderControl>();

@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -27,7 +28,6 @@ namespace PointOfSale
         {
             InitializeComponent();
             DataContext = new Order();
-
         }
 
         public void changeEnumSize()
@@ -51,7 +51,6 @@ namespace PointOfSale
             
         }
 
-
         private void AddItemSelection_Click(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl(); 
@@ -64,21 +63,38 @@ namespace PointOfSale
 
         private void AddCompleteOrder_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+
+            var screen = new TransactionControl();
+            screen.DataContext = this.DataContext;
+            swapScreen(screen);
         }
 
         public void swapScreen(UIElement element)
         {
-            Container.Child = element;
+
+            //Container.Child = element;
+
+            
+            if(element is TransactionControl)
+            {
+                LargeContainer.Child = element;
+            }
+            else if(element is OrderControl)
+            {
+                LargeContainer.Child = element;
+            }
+            else
+            {
+                Container.Child = element;
+            }
+            
         }
 
         public void editScreen(IOrderItem item)
         {
-
             var screen = new CustomizeItemControl();
             screen.DataContext = item;
             swapScreen(screen);
-
         }
     }
 }

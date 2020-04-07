@@ -10,7 +10,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// number of the previous order
         /// </summary>
-        private uint LastOrderNumber = 0;
+        private static uint LastOrderNumber = 0;
 
         /// <summary>
         /// list of items currently in the order
@@ -37,10 +37,23 @@ namespace CowboyCafe.Data
             }
         }
 
+        private double Tax = 0.16;
+
+        /// <summary>
+        /// Total of the current order
+        /// </summary>
+        public double Total
+        {
+            get
+            {
+                return (Subtotal + (Subtotal * Tax));
+            }
+        }
+
         /// <summary>
         /// the number associated with the current order (1+lastOrderNumber)
         /// </summary>
-        public uint OrderNumber { get { return LastOrderNumber++; } }
+        public uint OrderNumber { get; } = 0;
 
         /// <summary>
         /// An event to fire whenever an item is added, removed or the subtotal changes
@@ -49,7 +62,7 @@ namespace CowboyCafe.Data
 
         public Order()
         {
-            LastOrderNumber++;
+            OrderNumber = LastOrderNumber++;
         }
         /// <summary>
         /// Adds an item to the order
@@ -66,6 +79,7 @@ namespace CowboyCafe.Data
             //    notifier.PropertyChanged += OnItemPropertyChange;
             //}
         }
+
 
         /// <summary>
         /// removes an item from the order

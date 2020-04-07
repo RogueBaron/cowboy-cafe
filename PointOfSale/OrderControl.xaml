@@ -12,26 +12,28 @@
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0">
-            <Button Name="AddItemSelection" Click="AddItemSelection_Click">Item Selection</Button>
-            <Button Name="AddCancelOrder" Click="AddCancelOrder_Click">Cancel Order</Button>
-            <Button Name="AddCompleteOrder" Click="AddCompleteOrder_Click">Complete Order</Button>
-        </StackPanel>
-        
-        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
-            <local:OrderSummaryControl x:Name="OSC"></local:OrderSummaryControl>
-        </StackPanel>
-        <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
-            <local:MenuItemSelectionControl x:Name="MSC"></local:MenuItemSelectionControl>
-        </Border>
-    </Grid>
+    <Border x:Name="LargeContainer">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0">
+                <Button Name="AddItemSelection" Click="AddItemSelection_Click">Item Selection</Button>
+                <Button Name="AddCancelOrder" Click="AddCancelOrder_Click">Cancel Order</Button>
+                <Button Name="AddCompleteOrder" Click="AddCompleteOrder_Click">Complete Order</Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+                <local:OrderSummaryControl x:Name="OSC"></local:OrderSummaryControl>
+            </StackPanel>
+            <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
+                <local:MenuItemSelectionControl x:Name="MSC"></local:MenuItemSelectionControl>
+            </Border>
+        </Grid>
+    </Border>
 </UserControl>
