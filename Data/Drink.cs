@@ -8,7 +8,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a drink
     /// </summary>
-    public abstract class Drink: INotifyPropertyChanged
+    public abstract class Drink: INotifyPropertyChanged, IOrderItem
     {
         public virtual event PropertyChangedEventHandler PropertyChanged;
 

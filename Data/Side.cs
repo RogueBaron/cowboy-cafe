@@ -8,7 +8,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side : INotifyPropertyChanged
+    public abstract class Side : INotifyPropertyChanged, IOrderItem
     {
         public virtual event PropertyChangedEventHandler PropertyChanged;
 
@@ -41,6 +41,6 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
-        
+        public List<string> SpecialInstructions => throw new NotImplementedException();
     }
 }

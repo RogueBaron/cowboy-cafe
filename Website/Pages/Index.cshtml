@@ -1,0 +1,58 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@using CowboyCafe.Data;
+
+<h1>Cowboy Cafe</h1>
+<p>
+    We at Cowboy Cafe are proud to bring you authentic
+    trail meals from the American West. Shake off the
+    dust on your boots and sake your thirst with one
+    of our old-fashioned hand-jerked sodas. Dip your
+    Pan de Campo into a bowl of beans. Or conquer the
+    the mighty Texas Triple Burger! You’ve had a hard
+    ride - so take it easy with us.
+</p>
+
+<h2>Entrees</h2>
+
+@foreach (Entree e in Menu.Entrees())
+{
+    <div class="menu-item">
+        <h5>@e.ToString()</h5>
+        <header>@e.Price.ToString("C")</header>
+        <header>@e.Calories Calories</header>
+    </div>
+}
+
+<h2>Sides</h2>
+
+@foreach (Side s in Menu.Sides())
+{
+    <div class="menu-item">
+        <h5>@s.ToString()</h5>
+        <header>Small @s.Price.ToString("C") | @s.Calories Calories</header>
+        <header>Medium @s.Price.ToString("C") | @s.Calories Calories</header>
+        <header>Large @s.Price.ToString("C") | @s.Calories Calories</header>
+    </div>
+}
+
+
+<h2>Drinks</h2>
+@foreach (Drink d in Menu.Drinks())
+{
+    <div class="menu-item">
+        <h5>@d.ToString()</h5>
+        <header>Small @d.Price.ToString("C") | @d.Calories Calories</header>
+        <header>Medium @d.Price.ToString("C") | @d.Calories Calories</header>
+        <header>Large @d.Price.ToString("C") | @d.Calories Calories</header>
+    </div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
