@@ -63,5 +63,119 @@ namespace CowboyCafe.Data
             IEnumerable<IOrderItem> i = items;
             return i;
         }
+
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, String s)
+        {
+            if (s == null)
+            {
+                return items;
+            }
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            foreach (IOrderItem i in items)
+            {
+                if (i.ToString().Contains(s, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    results.Add(i);
+                }
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> s)
+        {
+            if (s == null || items == null)
+            {
+                return items;
+            }
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            foreach (IOrderItem i in items)
+            {
+                foreach(String str in s)
+                {
+                    if (i.GetType().Equals(s))
+                    {
+                        results.Add(i);
+                    }
+                }
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, int? min, int? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem i in items)
+                {
+                    if (i.Calories <= max) results.Add(i);
+                }
+                return results;
+            }
+
+            // only a minimum specified 
+            if (max == null)
+            {
+                foreach (IOrderItem i in items)
+                {
+                    if (i.Calories >= min) results.Add(i);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem i in items)
+            {
+                if (i.Calories >= min && i.Calories <= max)
+                {
+                    results.Add(i);
+                }
+            }
+            return results;
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem i in items)
+                {
+                    if (i.Price <= max) results.Add(i);
+                }
+                return results;
+            }
+
+            // only a minimum specified 
+            if (max == null)
+            {
+                foreach (IOrderItem i in items)
+                {
+                    if (i.Price >= min) results.Add(i);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem i in items)
+            {
+                if (i.Price >= min && i.Price <= max)
+                {
+                    results.Add(i);
+                }
+            }
+            return results;
+        }
+
     }
 }
